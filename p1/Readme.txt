@@ -42,9 +42,9 @@ What's in the tar.gz file:
 
 PMan.c
 	main function
-PManUtils.h
+PManUtils.h PManUtils.c
 	Utilities function for PMan
-ProcNode.h
+ProcNode.h ProcNode.c
 	Linked list data structured process node to hold the background programs
 inf.c 
 	A simple program which prints a tag with time interval.I modified it to stop it from print to the console, instead, 

@@ -4,51 +4,31 @@
  * CSC360 Fall 2018
  * P1: A Process Manager (PMan)
  * Utilities function for PMan
+ * Source file
  */
-#ifndef ASSIGNMENT1_PMAN_PMANUTILS_H
-#define ASSIGNMENT1_PMAN_PMANUTILS_H
-#include <stdlib.h>
-#include <stdio.h>
-#include <unistd.h>
-#include <string.h>
-#include <errno.h>
-#include <signal.h>
-#include <sys/types.h>
-#include <sys/wait.h>
-#include <readline/readline.h>
-#include <readline/history.h>
-#include "ProcNode.h"
+#include "PManUtils.h"
 
 /**
- * run a program in the background with fork()
+ * run a program in the background with fork() and exec* family
  * @param proc_list
  * @param args
  * @param len
  */
-void bg(ProcNode **proc_list, char **args, int len) {
+void bg(ProcNode **proc_list, char **argv) {
     ProcNode *pProc_list = *proc_list; // pointer to proc_list pointer
     pid_t pid = fork(); // create child process
 
     if (0 == pid) {
-        // it is in child process, execute the command
-        char *tmp[len+1];
-        int i;
-
-        // reformat the argv in order for the execvp to run the program with parameters
-        for (i=0; i<len; i++) {
-            tmp[i] = malloc(strlen(args[i]) + 1);
-            strcpy(tmp[i], args[i]);
-        }
-        tmp[i] = NULL; // last one should be NULL in order for execvp to run
-
-        if (-1 == execvp(tmp[0], tmp)) {
+//        printf("argv: %s %s %s\n", argv[0], argv[1], argv[2]);
+        // run program using execvp()
+        if (-1 == execvp(argv[0], argv)) {
             perror("unexpected error: failed creating background process.\n");
             exit(-1);
         }
     }
     else if (pid > 0) {
         // if path name starts with "./" then (pwd)/exe
-        char *pname = (args[0][0]=='.'&&args[0][1]=='/')?strcat(getcwd(0,0),&args[0][1]):args[0];
+        char *pname = (argv[0][0]=='.'&&argv[0][1]=='/')?strcat(getcwd(0,0),&argv[0][1]):argv[0];
         add_to_list(&pProc_list, pid, pname);
         printf("creating background process with pid: %d...\n", (int)pid);
         sleep(1);
@@ -164,16 +144,29 @@ void pstat(pid_t pid) {
 
     while (NULL != tmp) {
         stat_field[i] = malloc(strlen(tmp) + 1);
+        // error handler for malloc
+        if (NULL == stat_field[i]){
+            printf("unexpected error: malloc() failed.");
+            exit(-1);
+        }
         strcpy(stat_field[i], tmp);
         i++;
         tmp = strtok(NULL, " ");
     }
+    stat_field[i] = NULL;
 
-    printf("comm: \t\t%s\n", stat_field[1]); // item#-1
-    printf("state: \t\t%s\n", stat_field[2]);
-    printf("utime: \t\t%s\n", stat_field[13]);
-    printf("stime: \t\t%s\n", stat_field[14]);
-    printf("rss: \t\t%s\n", stat_field[23]);
+    printf("comm: \t\t\t\t%s\n", stat_field[1]); // item#-1
+    printf("state: \t\t\t\t%s\n", stat_field[2]);
+    printf("utime: \t\t\t\t%s\n", stat_field[13]);
+    printf("stime: \t\t\t\t%s\n", stat_field[14]);
+    printf("rss: \t\t\t\t%s\n", stat_field[23]);
+
+    // free memory after malloc()
+    for (i=0; i<100; i++) {
+        if (NULL == stat_field[i])
+            break;
+        free(stat_field[i]);
+    }
 
     fclose(fp);
 
@@ -254,5 +247,3 @@ void proc_clean(ProcNode **proc_list) {
         curr = curr->next;
     }
 }
-
-#endif //ASSIGNMENT1_PMAN_PMANUTILS_H

@@ -25,6 +25,13 @@ int main() {
     char *input;
     char *cmd;
     ProcNode *proc_list = malloc(sizeof(ProcNode));
+
+    // error handler for malloc
+    if (NULL == proc_list){
+        printf("unexpected error: malloc() failed.");
+        exit(-1);
+    }
+
     for(;;) {
         input = readline("PMan: > ");
         if (0 == strcmp(input, ""))
@@ -42,12 +49,24 @@ int main() {
             char *args[10];
             while (NULL != tmp && i < 10) {
                 args[i] = malloc(strlen(tmp) + 1);
+                if (NULL == args[i]) {
+                    printf("unexpected error: malloc() failed.");
+                    exit(-1);
+                }
                 strcpy(args[i], tmp);
                 i++;
                 tmp = strtok(NULL, " ");
             }
+            args[i] = NULL;
 
-            bg(&proc_list, args, i);
+            bg(&proc_list, args);
+
+            // free memory after malloc()
+            for (i=0; i<10; i++) {
+                if (NULL == args[i])
+                    break;
+                free(args[i]);
+            }
         }
         else if (0 == strcmp(cmd, "bglist")) {
             bglist(&proc_list);
@@ -123,5 +142,6 @@ int main() {
 
     // clean up zombie processes
     proc_clean(&proc_list);
+    free(proc_list);
     return 0;
 }

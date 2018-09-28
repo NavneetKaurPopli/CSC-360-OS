@@ -4,25 +4,10 @@
  * CSC360 Fall 2018
  * P1: A Process Manager (PMan)
  * Linked list data structured process node to hold the background programs
+ * Source file
  */
-#ifndef ASSIGNMENT1_PMAN_PROCNODE_H
-#define ASSIGNMENT1_PMAN_PROCNODE_H
-#include <stdio.h>
-#include <unistd.h>
-#include <stdlib.h>
-#include <string.h>
-#include <sys/types.h>
 
-/**
- * define a linked list for process node
- * proc_id is the unique key
- */
-typedef struct ProcNode {
-    char *proc_name;
-    pid_t proc_id;
-    int proc_state; // process state where 1: running, 0: stopped
-    struct ProcNode *next;
-} ProcNode;
+#include "ProcNode.h"
 
 /**
  * create a process with pid and pname and state set to 1
@@ -71,7 +56,7 @@ void delete_from_list(ProcNode **head, pid_t pid) {
     ProcNode *prev = NULL;
 
     if(NULL == curr) {
-        printf("error: cannot delete process that doesn't exist.");
+        printf("error: cannot delete process that does not exist.");
         return;
     }
 
@@ -83,7 +68,7 @@ void delete_from_list(ProcNode **head, pid_t pid) {
             }
             else {
                 prev->next = curr->next;
-                free(curr);
+                free(curr); //free the space
             }
         }
         prev = curr;
@@ -118,5 +103,3 @@ void set_state(ProcNode **head, pid_t pid, int state) {
     ProcNode *curr = get_proc(&phead, pid);
     curr->proc_state = state;
 }
-
-#endif //ASSIGNMENT1_PMAN_PROCNODE_H
