@@ -4,7 +4,7 @@
  * CSC360 Fall 2018
  * P1: A Process Manager (PMan)
  * Linked list data structured process node to hold the background programs
- * Source file
+ * Implementation
  */
 
 #include "ProcNode.h"
@@ -25,13 +25,13 @@ ProcNode *create_proc(pid_t pid, char *pname) {
 }
 
 /**
- * add a process to the head of list
+ * add a process to the tail of the list
  * @param head
  * @param pid
  * @param pname
  */
 void add_to_list(ProcNode **head, pid_t pid, char *pname) {
-    ProcNode *pHead = *head; // pointer to that pointer
+    ProcNode *pHead = *head; // pointer to head pointer
 
     if (NULL == pHead){
         pHead = create_proc(pid, pname);
@@ -94,7 +94,7 @@ ProcNode *get_proc(ProcNode **head, pid_t pid) {
 }
 
 /**
- * change the process state if 1 then 0 else 1
+ * change the process state
  * @param head
  * @param pid
  */
