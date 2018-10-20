@@ -13,6 +13,6 @@ pstat (14/20): utime/stime: -6. // because of the format, I lose all the marks. 
 Code style (5/5)<br>
 Readme.txt (5/5)<br>
 
-system bug: memory free error: -2 // It will cause memory error when run on TA's linux system(UVic linux0 machine), however, I didn't have this problem when run on my linux system which is UVic linux4 machine
+system bug: memory free error: -2 // It will cause memory error when run on TA's linux system, this is due to the path name format which will cause error to my implementation on the read file portion.
 
 Total 92
