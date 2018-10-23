@@ -1,5 +1,4 @@
 Zhe Chen
-V00819544
 CSC360 Fall 2018
 P1: A Process Manager (PMan)
 
@@ -14,7 +13,7 @@ You will also be able to list all the running process and get status of each pro
 Use Guide:
 
 bg: In order to create the background program, you should call along with the program with its path and arguments if there is any.
-e.g. bg ./inf qwe 15 ti run the program <inf> with its parameters <qwe 15>. if you run it directly in Linux shell: ./inf qwe 15
+e.g. use bg ./inf qwe 15 to run the program <inf> with its parameters <qwe 15>. if you run it directly in Linux shell,try ./inf qwe 15
 
 bglist: You can simply type the bglist command to get the list of currently running processes and total process count.
 

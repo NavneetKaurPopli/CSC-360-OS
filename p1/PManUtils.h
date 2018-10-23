@@ -1,6 +1,5 @@
 /**
  * Zhe Chen
- * V00819544
  * CSC360 Fall 2018
  * P1: A Process Manager (PMan)
  * Utilities function for PMan
