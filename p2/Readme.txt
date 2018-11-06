@@ -1,5 +1,4 @@
 Zhe Chen
-V00819544
 CSC360 Fall 2018
 P2: Airline Check-in System
 
