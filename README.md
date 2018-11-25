@@ -1,7 +1,7 @@
 # Operating-Systems
 class works for UVic csc360 Operating Systems by Prof Kui Wu
 
-Assignment 1:
+Assignment 1:<br>
 My grade and comments:<br>
 Make file (5/5)<br>
 Error handling (10/10)<br>
@@ -18,7 +18,7 @@ system bug: memory free error: -2 // It will cause memory error when run on TA's
 
 Total 92
 
-Assignment 2:
+Assignment 2:<br>
 Design:15/15<br>
 Implement:14.3/15<br>
 Make file:0.4/0.5<br>
