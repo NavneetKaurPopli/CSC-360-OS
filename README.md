@@ -17,3 +17,20 @@ Readme.txt (5/5)<br>
 system bug: memory free error: -2 // It will cause memory error when run on TA's linux system, this is due to the path name format which will cause error to my implementation on the read file portion.
 
 Total 92
+
+Assignment 2:
+Design:15/15<br>
+Implement:14.3/15<br>
+Make file:0.4/0.5<br>
+Input file:0.5/0.5<br>
+Normal cases:3.5/4<br>
+Special cases (illegal values):1/1<br>
+Output format:1/1<br>
+Catch system call return values:1/1<br>
+Correct statistics:2/2<br>
+Comments (functional decomposition):2/2<br>
+Code style:0.5/0.5<br>
+Critical sections:1.9/2<br>
+Readme:0.5/0.5<br>
+
+Total 14.4/15
