@@ -15,10 +15,10 @@ of sectors in a cluster is one. Also, the size of a sector(and hence a cluster) 
 
 FAT12 Disk Organization:
 Disk-Sectors		Name-of-section
-0					Boot Sector
-1~18				FAT tables
-19~32				Root Directory
-33~2879				Data Area
+0			Boot Sector
+1~18			FAT tables
+19~32			Root Directory
+33~2879			Data Area
 
 File cluster: 2~2848
 
