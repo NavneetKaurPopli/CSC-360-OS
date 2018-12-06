@@ -19,18 +19,19 @@ system bug: memory free error: -2 // It will cause memory error when run on TA's
 Total 92
 
 Assignment 2:<br>
+My grade and comments:<br>
 Design:15/15<br>
 Implement:14.3/15<br>
-Make file:0.4/0.5<br>
+Make file:0.4/0.5<br> // rm wrong file
 Input file:0.5/0.5<br>
-Normal cases:3.5/4<br>
+Normal cases:3.5/4<br> // my implementation has undesired bug that would sometimes fail when lots of customer arrive at the same time
 Special cases (illegal values):1/1<br>
 Output format:1/1<br>
 Catch system call return values:1/1<br>
 Correct statistics:2/2<br>
 Comments (functional decomposition):2/2<br>
 Code style:0.5/0.5<br>
-Critical sections:1.9/2<br>
+Critical sections:1.9/2<br> // I created 5 and 3 mutexes when I actually used 4 and 2. I gave the explaination. This could be avoid.
 Readme:0.5/0.5<br>
 
 Total 14.4/15

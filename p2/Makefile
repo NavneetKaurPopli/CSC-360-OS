@@ -6,4 +6,4 @@ ACS: ACS.c QueueNode.c
 
 .PHONY clean:
 clean:
-	-rm -rf *.o *.exe
+	-rm -rf ACS
