@@ -24,7 +24,7 @@ Design:15/15<br>
 Implement:14.3/15<br>
 Make file:0.4/0.5 // rm wrong file<br>
 Input file:0.5/0.5<br>
-Normal cases:3.5/4 // my implementation has undesired bug that would sometimes fail when lots of customer arrive at the same time
+Normal cases:3.5/4 // my implementation has undesired bug that would sometimes fail when lots of customer arrive at the same time<br>
 Special cases (illegal values):1/1<br>
 Output format:1/1<br>
 Catch system call return values:1/1<br>
