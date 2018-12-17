@@ -16,7 +16,7 @@ Readme.txt (5/5)<br>
 
 system bug: memory free error: -2 // It will cause memory error when run on TA's linux system, this is due to the path name format which will cause error to my implementation on the read file portion.
 
-Total 92
+Total 92/100
 
 Assignment 2:<br>
 My grade and comments:<br>
@@ -34,4 +34,17 @@ Code style:0.5/0.5<br>
 Critical sections:1.9/2 // I created 5 and 3 mutexes when I actually used 4 and 2. I gave the explaination. This could be avoid.<br>
 Readme:0.5/0.5<br>
 
-Total 14.4/15
+Total 14.4/15 = 96/100
+
+Assignment 3:<br>
+My grade and comments:<br>
+Make file 5 <br>
+diskinfo (15/15) <br>
+disklist (20/20)<br>
+diskget (25/25) <br>
+diskput (30/30) <br>
+Readme 5 <br>
+
+Total 100/100
+
+
